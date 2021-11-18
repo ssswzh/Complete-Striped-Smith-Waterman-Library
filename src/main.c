@@ -73,9 +73,9 @@ static void ssw_write (s_align* a,
 		if (strand == 0) fprintf(stdout, "strand: +\t");
 		else fprintf(stdout, "strand: -\t");
 		if (a->ref_begin1 + 1) fprintf(stdout, "target_begin: %d\t", a->ref_begin1 + 1);
-		fprintf(stdout, "target_end: %d\t", a->ref_end1 + 1);
+		fprintf(stdout, "target_end: %d\ttarget_length: %lu\t", a->ref_end1 + 1, ref_seq->seq.l);
 		if (a->read_begin1 + 1) fprintf(stdout, "query_begin: %d\t", a->read_begin1 + 1);
-		fprintf(stdout, "query_end: %d\n\n", a->read_end1 + 1);
+		fprintf(stdout, "query_end: %d\tquery_length: %lu\n\n", a->read_end1 + 1, read->seq.l);
 		if (a->cigar) {
 			int32_t c = 0, left = 0, e = 0, qb = a->ref_begin1, pb = a->read_begin1;
 			uint32_t i;
